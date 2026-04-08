@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The End of Heroku.</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap');
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -12,19 +14,19 @@
     }
 
     :root {
-      --blue:      #1192C5;
-      --blue-mid:  #0d7aaa;
-      --blue-dark: #0a5f87;
-      --white:     #ffffff;
-      --font:         Optima, Candara, 'Segoe UI', Georgia, sans-serif;
+      --blue:          #1192C5;
+      --blue-mid:      #0d7aaa;
+      --blue-dark:     #0a5f87;
+      --white:         #ffffff;
+      --font:          Arial, Helvetica, sans-serif;
       --font-headline: 'Barlow Condensed', 'Trade Gothic', Arial, sans-serif;
 
       --hero-gradient: radial-gradient(
-        ellipse 90% 80% at 50% 36%,
+        ellipse 100% 60% at 50% 4%,
         #ffffff   0%,
-        #cce9f8  12%,
-        #5dbde8  32%,
-        #1192C5  58%,
+        #cce9f8  14%,
+        #5dbde8  35%,
+        #1192C5  60%,
         #08608f  100%
       );
     }
@@ -37,6 +39,26 @@
       font-family: var(--font);
       line-height: 1.6;
       min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      background-color: var(--white);
+      padding: 14px 28px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .nav-logo {
+      font-family: var(--font-headline);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo:hover {
+      color: var(--blue-dark);
     }
 
     /* ── HERO ── */
@@ -70,11 +92,11 @@
 
     .hero-body {
       font-family: var(--font);
-      font-size: clamp(1.05rem, 2.3vw, 1.3rem);
+      font-size: clamp(1rem, 2.3vw, 1.2rem);
       font-weight: 400;
       line-height: 1.7;
       color: var(--white);
-      max-width: 640px;
+      max-width: 600px;
       margin: 0 auto;
       text-align: center;
     }
@@ -82,7 +104,7 @@
     .hero-body p { margin-bottom: 18px; }
     .hero-body p:last-child { margin-bottom: 0; }
 
-    /* ── WHITE SECTIONS (shared by Bet + How it works) ── */
+    /* ── WHITE SECTIONS ── */
     .section-white {
       background-color: var(--white);
       padding: 80px 24px;
@@ -105,7 +127,7 @@
 
     .section-headline {
       font-family: var(--font-headline);
-      font-size: clamp(1.7rem, 4vw, 2.5rem);
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
       font-weight: 700;
       line-height: 1.15;
       color: #111;
@@ -114,10 +136,18 @@
 
     .section-body {
       font-family: var(--font);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.75;
-      color: #222;
+      color: #333;
       margin-bottom: 28px;
+    }
+
+    .section-body strong {
+      font-family: var(--font-headline);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: 0.01em;
     }
 
     .section-body:last-child { margin-bottom: 0; }
@@ -138,9 +168,8 @@
     /* ── CTA ── */
     .section-cta {
       background-color: var(--white);
-      padding: 16px 24px 88px;
+      padding: 16px 24px 72px;
       text-align: center;
-      border-top: none;
     }
 
     .section-cta .inner {
@@ -148,35 +177,19 @@
       margin: 0 auto;
     }
 
-    .cta-headline {
-      font-family: var(--font-headline);
-      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      color: #111;
-      margin-bottom: 16px;
-    }
-
-    .cta-sub {
-      font-family: var(--font);
-      font-size: 1.05rem;
-      color: #444;
-      margin-bottom: 36px;
-      line-height: 1.65;
-    }
-
     .cta-button {
       display: inline-block;
       background-color: var(--blue);
       color: var(--white);
-      font-family: var(--font);
-      font-size: 1.1rem;
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
       font-weight: 700;
       text-decoration: none;
-      padding: 18px 44px;
+      padding: 18px 48px;
       border-radius: 3px;
       transition: background 0.2s ease, transform 0.15s ease;
       box-shadow: 0 4px 18px rgba(17,146,197,0.3);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
     }
 
     .cta-button:hover {
@@ -187,10 +200,29 @@
 
     .cta-fine-print {
       font-family: var(--font);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #999;
       margin-top: 24px;
       line-height: 1.65;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background-color: var(--white);
+      border-top: 1px solid #e8e8e8;
+      padding: 20px 28px;
+      text-align: center;
+    }
+
+    .site-footer a {
+      font-family: var(--font);
+      font-size: 0.85rem;
+      color: var(--blue-mid);
+      text-decoration: none;
+    }
+
+    .site-footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 580px) {
@@ -200,6 +232,11 @@
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <a href="https://build.io" class="nav-logo">build.io</a>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
@@ -228,7 +265,6 @@
       </p>
     </div>
   </section>
-
 
   <!-- HOW IT WORKS -->
   <section class="section-white">
@@ -266,6 +302,11 @@
       </p>
     </div>
   </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <a href="https://build.io">build.io — the cloud platform built for product teams.</a>
+  </footer>
 
 </body>
 </html>
