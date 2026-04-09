@@ -17,24 +17,17 @@
       --blue:          #1192C5;
       --blue-mid:      #0d7aaa;
       --blue-dark:     #0a5f87;
+      --hero-bg:       #cde9f8;
+      --page-bg:       #fafafa;
       --white:         #ffffff;
       --font:          Arial, Helvetica, sans-serif;
       --font-headline: 'Barlow Condensed', 'Trade Gothic', Arial, sans-serif;
-
-      --hero-gradient: radial-gradient(
-        ellipse 100% 60% at 50% 4%,
-        #ffffff   0%,
-        #cce9f8  14%,
-        #5dbde8  35%,
-        #1192C5  60%,
-        #08608f  100%
-      );
     }
 
     html { font-size: 16px; }
 
     body {
-      background-color: var(--white);
+      background-color: var(--page-bg);
       color: #111;
       font-family: var(--font);
       line-height: 1.6;
@@ -57,27 +50,31 @@
       letter-spacing: 0.04em;
     }
 
-    .nav-logo:hover {
-      color: var(--blue-dark);
-    }
+    .nav-logo:hover { color: var(--blue-dark); }
 
     /* ── HERO ── */
     .hero {
-      background: var(--hero-gradient);
+      background-color: var(--hero-bg);
       text-align: center;
       padding: 64px 24px 80px;
     }
 
-    .badge-wrap {
+    /* Side-by-side images */
+    .hero-images {
       display: flex;
       justify-content: center;
-      margin-bottom: 44px;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 52px;
+      flex-wrap: wrap;
     }
 
-    .badge-wrap img {
-      width: 300px;
+    .hero-images img {
       height: 300px;
-      object-fit: contain;
+      width: auto;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
     }
 
     .hero-headline {
@@ -86,17 +83,17 @@
       font-weight: 700;
       line-height: 1.05;
       letter-spacing: -0.01em;
-      color: var(--white);
+      color: #111;
       margin-bottom: 32px;
     }
 
     .hero-body {
       font-family: var(--font);
-      font-size: clamp(1rem, 2.3vw, 1.2rem);
+      font-size: clamp(1rem, 2.3vw, 1.15rem);
       font-weight: 400;
-      line-height: 1.7;
-      color: var(--white);
-      max-width: 600px;
+      line-height: 1.75;
+      color: #222;
+      max-width: 620px;
       margin: 0 auto;
       text-align: center;
     }
@@ -104,9 +101,16 @@
     .hero-body p { margin-bottom: 18px; }
     .hero-body p:last-child { margin-bottom: 0; }
 
+    .hero-body a {
+      color: var(--blue-dark);
+      text-decoration: underline;
+    }
+
+    .hero-body a:hover { color: var(--blue); }
+
     /* ── WHITE SECTIONS ── */
     .section-white {
-      background-color: var(--white);
+      background-color: var(--page-bg);
       padding: 80px 24px;
     }
 
@@ -154,7 +158,7 @@
 
     /* ── MAC MINI IMAGE ── */
     .mac-break {
-      background-color: var(--white);
+      background-color: var(--page-bg);
       text-align: center;
       padding: 0 24px 20px;
     }
@@ -167,7 +171,7 @@
 
     /* ── CTA ── */
     .section-cta {
-      background-color: var(--white);
+      background-color: var(--page-bg);
       padding: 16px 24px 72px;
       text-align: center;
     }
@@ -221,12 +225,11 @@
       text-decoration: none;
     }
 
-    .site-footer a:hover {
-      text-decoration: underline;
-    }
+    .site-footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 580px) {
-      .badge-wrap img { width: 220px; height: 220px; }
+    @media (max-width: 680px) {
+      .hero-images { gap: 16px; }
+      .hero-images img { height: 200px; }
       .mac-break img { max-width: 100%; }
     }
   </style>
@@ -240,14 +243,20 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="badge-wrap">
-      <img src="death-of-heroku.png" alt="Death of Heroku" />
+
+    <div class="hero-images">
+      <img src="heroku-protest.jpg" alt="Salesforce protest campaign" />
+      <img src="heroku-press-release.png" alt="Heroku sunset press release" />
     </div>
+
     <h1 class="hero-headline">The End of Heroku.</h1>
+
     <div class="hero-body">
-      <p>Salesforce announced the end of software with hired protesters and a mock funeral. They announced the end of Heroku with an ambiguous PR post.</p>
+      <p>Salesforce announced the end of on-premise software with <a href="https://ehandbook.com/the-staged-protest-that-kickstarted-the-growth-of-salesforce-into-a-billion-dollar-company-a53d6995f762" target="_blank" rel="noopener">hired protesters and a mock funeral</a>. They announced the end of Heroku with an <a href="https://www.heroku.com/blog/an-update-on-heroku/" target="_blank" rel="noopener">ambiguous PR post</a>.</p>
       <p>Once an in-touch start-up of the people. Now an out-of-touch bureaucracy.</p>
+      <p>Heroku was neglected for years. Build is everything it should have become. Let us prove it — and if we fail, you get a Mac Mini.</p>
     </div>
+
   </section>
 
   <!-- THE BET -->
